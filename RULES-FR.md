@@ -1,5 +1,7 @@
 # Règles du jeu
 
+> **English version available:** [RULES.md](RULES.md)
+
 ## Objectif
 
 Sauvez vos abeilles ouvrières en les guidant vers l'entrée de la ruche. Terminez les 15 niveaux.

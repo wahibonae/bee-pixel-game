@@ -1,5 +1,7 @@
 # La Reine des Abeilles
 
+> **English version available:** [README.md](README.md)
+
 Un jeu en pixel art jouable dans le navigateur. Vous incarnez la Reine des Abeilles et devez guider votre essaim à travers un jardin rempli de dangers.
 
 **Jouer au jeu :** [itch.io](https://wahibonae.itch.io/bee-pixel-game) -
