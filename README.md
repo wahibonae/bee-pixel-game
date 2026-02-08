@@ -76,6 +76,43 @@ libraries/         p5.js, p5.sound
 - **p5.sound** for SFX and music playback
 - Pixel art style: `noSmooth()`, `pixelDensity(1)`, `floor()` snapping
 
+## Difficulties Encountered
+
+- **Predator speed balancing**: Getting the right speed for each predator type across 15 levels was tricky because hornets felt unfair when too fast in early levels, so we added level-based speed scaling (50% at level 1, ramping up to full speed by level 3).
+- **Bees spawning inside obstacles**: When transitioning between levels, new obstacles would randomly land on existing bees, killing them instantly before the player could react. Fixed by moving any overlapping bees to a safe position near the queen after placing the obstacles.
+
+## What I'm Most Proud Of
+
+Successfully implementing Mr. Michel Buffa's suggestions, which elevated the game from a basic boids demo to a complete, polished game:
+- **Progressive predator introduction** across 15 levels (4 distinct types with unique behaviors)
+- **Sound design** with 8-bit SFX for every game event (bee saved, bee death, level complete, game over, victory)
+- **Background music** that switches between menu and gameplay (AI-generated using Suno)
+- The result is a game that feels complete and fun to play, not just a technical demo.
+
+## AI Tools Used
+
+### Claude Code (Anthropic)
+
+The game was developed with the assistance of [Claude Code](https://claude.com/product/claude-code), Anthropic's AI coding assistant.
+
+**What it was used for:**
+- Code refactoring (steering behaviors, game loop, level system)
+- Pixel art style conversion (replacing smooth rendering with pixel-snapped squares)
+- Bug investigation and fixing (level transition bug, obstacle spawn overlap)
+- Game design suggestions (predator type system, level progression, UX flow)
+
+**Example prompts used:**
+
+> "the current game is a cosmic game that combines the mechanisms shared by Craig Reynolds. Please make these small fixes: more obstacles as levels progress, add a protection circle around the mouse"
+
+> "we should have 15 levels: 1 to 5 wasps and obstacles, 6 to 12 wasps and obstacles and new predators, 13 to 15 wasps and obstacles and lizards and dragonflies and big spiders"
+
+> "there is still that issue of the game continuing to create hives even after the threshold has been reached. Please investigate what's happening and find exactly what causes this issue and think of the best solutions that are minimal and 100% working in all edge cases."
+
+### Suno
+
+[Suno](https://suno.com/) was used to generate the 8-bit chiptune menu and gameplay music using text prompts describing the desired style and mood.
+
 ## Credits
 
 - Game created by: **Mohamed Wahib ABKARI**
