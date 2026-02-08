@@ -75,6 +75,10 @@ class Predator {
   }
 
   applyBehaviors(playerPos, boids, obstacles) {
+    this.debugPursueTarget = null;
+    this.debugWanderCenter = null;
+    this.debugWanderTarget = null;
+
     // 1. On fuit la reine si elle est trop proche
     let dPlayer = this.pos.dist(playerPos);
     if (dPlayer < this.fleePlayerRadius) {
@@ -113,6 +117,7 @@ class Predator {
   pursue(target) {
     let prediction = target.vel.copy().mult(10);
     let futurePos = p5.Vector.add(target.pos, prediction);
+    this.debugPursueTarget = futurePos.copy();
     return this.seek(futurePos);
   }
 
@@ -143,6 +148,9 @@ class Predator {
 
     let force = p5.Vector.sub(pointSurCercle, this.pos);
     force.setMag(this.maxForce);
+
+    this.debugWanderCenter = centreCercle.copy();
+    this.debugWanderTarget = pointSurCercle.copy();
 
     this.wanderTheta += random(-this.displaceRange, this.displaceRange);
     return force;
@@ -262,15 +270,71 @@ class Predator {
     image(this.img, px, py, imgSize, imgSize);
     pop();
 
-    // Mode debug : carrés de détection et de fuite (pixel style)
+    // Mode debug
     if (Boid.debug) {
       push();
       noFill();
       rectMode(CENTER);
+
+      // Rayon de détection des proies
       stroke(gr, gg, gb, 60);
       rect(px, py, this.detectionRadius * 2, this.detectionRadius * 2);
+
+      // Rayon de fuite de la reine
       stroke(0, 255, 0, 60);
       rect(px, py, this.fleePlayerRadius * 2, this.fleePlayerRadius * 2);
+
+      // Vecteur vitesse (rouge)
+      stroke(255, 60, 0, 180);
+      strokeWeight(2);
+      let vx = this.vel.copy().mult(8);
+      line(px, py, px + vx.x, py + vx.y);
+
+      // Point de direction
+      noStroke();
+      fill(255, 0, 0, 200);
+      rect(px + vx.x, py + vx.y, 4, 4);
+
+      // Cible de poursuite (position future de la proie)
+      if (this.debugPursueTarget) {
+        noFill();
+        stroke(0, 255, 0, 150);
+        strokeWeight(1);
+        let tx = floor(this.debugPursueTarget.x);
+        let ty = floor(this.debugPursueTarget.y);
+        rect(tx, ty, 12, 12);
+        stroke(0, 255, 0, 80);
+        line(px, py, tx, ty);
+      }
+
+      // Cercle de wander et cible
+      if (this.debugWanderCenter && this.debugWanderTarget) {
+        let cx = floor(this.debugWanderCenter.x);
+        let cy = floor(this.debugWanderCenter.y);
+        let wx = floor(this.debugWanderTarget.x);
+        let wy = floor(this.debugWanderTarget.y);
+
+        // Centre du cercle
+        noStroke();
+        fill(255, 150, 0, 150);
+        rect(cx, cy, 6, 6);
+
+        // Cercle de wander
+        noFill();
+        stroke(255, 150, 0, 80);
+        circle(cx, cy, this.wanderRadius * 2);
+
+        // Cible sur le cercle
+        noStroke();
+        fill(0, 255, 100, 200);
+        rect(wx, wy, 8, 8);
+
+        // Ligne vers la cible
+        stroke(255, 255, 0, 80);
+        strokeWeight(1);
+        line(px, py, wx, wy);
+      }
+
       pop();
     }
   }

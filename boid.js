@@ -289,13 +289,27 @@ class Boid {
     image(beeImg, px, py, imgSize, imgSize);
     pop();
 
-    // Mode debug : rayon de perception (carré pixel)
+    // Mode debug
     if (Boid.debug) {
       push();
+      // Rayon de perception
       noFill();
-      stroke(255, 200, 50, 80);
+      stroke(255, 200, 50, 50);
       rectMode(CENTER);
       rect(px, py, this.perceptionRadius * 2, this.perceptionRadius * 2);
+
+      // Vecteur vitesse (jaune)
+      stroke(255, 255, 0, 180);
+      strokeWeight(2);
+      let vx = this.vel.copy().mult(8);
+      line(px, py, px + vx.x, py + vx.y);
+
+      // Point de direction (rouge)
+      noStroke();
+      fill(255, 0, 0, 200);
+      rectMode(CENTER);
+      rect(px + vx.x, py + vx.y, 4, 4);
+
       pop();
     }
   }
