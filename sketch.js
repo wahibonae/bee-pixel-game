@@ -752,11 +752,20 @@ function drawVictoryScreen() {
   textSize(20);
   text('15 niveaux complétés', width / 2, height / 2 + 55);
 
+  // Credits
+  fill(255, 210, 50);
+  textSize(16);
+  text('Créé par Mohamed Wahib ABKARI', width / 2, height / 2 + 110);
+
+  fill(180, 170, 140);
+  textSize(14);
+  text('Merci à Mr. Michel Buffa pour son soutien et son aide', width / 2, height / 2 + 138);
+
   let blink2 = floor(millis() / 500) % 2 === 0;
   if (blink2) {
     fill(255, 240, 180);
     textSize(18);
-    text('Appuyez sur [R] pour rejouer', width / 2, height / 2 + 110);
+    text('Appuyez sur [R] pour rejouer', width / 2, height / 2 + 185);
   }
 
   pop();
