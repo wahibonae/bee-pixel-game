@@ -5,7 +5,7 @@ A pixel-art browser game where you play as the Queen Bee, guiding your swarm to 
 **Play the game:** [itch.io](https://wahibonae.itch.io/bee-pixel-game) - 
 **Watch the video:** [YouTube](https://www.youtube.com/watch?v=odTDjEG52OY)
 
-![Queen Bee Gameplay](assets/screenshot.png)
+[![Queen Bee Gameplay](assets/screenshot.png)](https://www.youtube.com/watch?v=odTDjEG52OY)
 
 ## About
 
