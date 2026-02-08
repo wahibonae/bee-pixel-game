@@ -1,5 +1,7 @@
 # Queen Bee (La Reine des Abeilles)
 
+> **Version française disponible :** [README-FR.md](README-FR.md)
+
 A pixel-art browser game where you play as the Queen Bee, guiding your swarm to safety through a dangerous garden.
 
 **Play the game:** [itch.io](https://wahibonae.itch.io/bee-pixel-game) - 
@@ -95,11 +97,7 @@ Successfully implementing Mr. Michel Buffa's suggestions, which elevated the gam
 
 The game was developed with the assistance of [Claude Code](https://claude.com/product/claude-code), Anthropic's AI coding assistant.
 
-**What it was used for:**
-- Code refactoring (steering behaviors, game loop, level system)
-- Pixel art style conversion (replacing smooth rendering with pixel-snapped squares)
-- Bug investigation and fixing (level transition bug, obstacle spawn overlap)
-- Game design suggestions (predator type system, level progression, UX flow)
+Used for code refactoring, pixel art style conversion, bug investigation and fixing, and game design suggestions.
 
 **Example prompts used:**
 
