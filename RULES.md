@@ -1,5 +1,7 @@
 # Game Rules
 
+> **Version française disponible :** [RULES-FR.md](RULES-FR.md)
+
 ## Objective
 
 Save your worker bees by guiding them to the hive entrance. Complete all 15 levels.
